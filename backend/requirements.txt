@@ -1,0 +1,12 @@
+# --- Modelo (versiones EXACTAS con las que se entrenó en Colab; no cambiar) ---
+scikit-learn==1.6.1
+numpy==2.4.6
+pandas==2.2.3
+joblib==1.6.0
+
+# --- Backend ---
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.6
+boto3>=1.34
+python-dotenv>=1.0

@@ -1,0 +1,149 @@
+{
+  "proyecto": "Predicción del rendimiento relativo de empresas del S&P 500 frente a RSP",
+  "modelo": "Random Forest",
+  "archivo_modelo": "modelo_rf_pipeline.joblib",
+  "fecha_generacion": "2026-11-17 20:18:30",
+  "descripcion": "Estima la probabilidad de que la acción de una empresa del S&P 500 supere al ETF RSP (S&P 500 equiponderado) durante los siguientes 12 meses.",
+  "target": {
+    "nombre": "Target",
+    "1": "La acción supera a RSP en 12 meses",
+    "0": "La acción no supera a RSP en 12 meses"
+  },
+  "features_orden": [
+    "Revenue_Growth",
+    "Net_Income",
+    "Profit_Margin",
+    "Debt_to_Equity",
+    "PE_Ratio",
+    "Patrimonio_Negativo",
+    "Perdidas",
+    "GICS Sector_Communication Services",
+    "GICS Sector_Consumer Discretionary",
+    "GICS Sector_Consumer Staples",
+    "GICS Sector_Energy",
+    "GICS Sector_Financials",
+    "GICS Sector_Health Care",
+    "GICS Sector_Industrials",
+    "GICS Sector_Information Technology",
+    "GICS Sector_Materials",
+    "GICS Sector_Real Estate",
+    "GICS Sector_Utilities"
+  ],
+  "continuas": [
+    "Revenue_Growth",
+    "Net_Income",
+    "Profit_Margin",
+    "Debt_to_Equity",
+    "PE_Ratio"
+  ],
+  "binarias": [
+    "Patrimonio_Negativo",
+    "Perdidas"
+  ],
+  "columnas_sector": [
+    "GICS Sector_Communication Services",
+    "GICS Sector_Consumer Discretionary",
+    "GICS Sector_Consumer Staples",
+    "GICS Sector_Energy",
+    "GICS Sector_Financials",
+    "GICS Sector_Health Care",
+    "GICS Sector_Industrials",
+    "GICS Sector_Information Technology",
+    "GICS Sector_Materials",
+    "GICS Sector_Real Estate",
+    "GICS Sector_Utilities"
+  ],
+  "sectores": [
+    "Communication Services",
+    "Consumer Discretionary",
+    "Consumer Staples",
+    "Energy",
+    "Financials",
+    "Health Care",
+    "Industrials",
+    "Information Technology",
+    "Materials",
+    "Real Estate",
+    "Utilities"
+  ],
+  "unidades": {
+    "Revenue_Growth": "% (crecimiento de ingresos)",
+    "Net_Income": "millones de USD (utilidad neta)",
+    "Profit_Margin": "% (margen de utilidad)",
+    "Debt_to_Equity": "ratio deuda/patrimonio",
+    "PE_Ratio": "ratio precio/utilidad"
+  },
+  "rangos_entrenamiento": {
+    "Revenue_Growth": {
+      "min": -73.43309762073545,
+      "p1": -35.37550688227144,
+      "mediana": 5.191594561186652,
+      "p99": 73.67736300098366,
+      "max": 151.8299319180559
+    },
+    "Net_Income": {
+      "min": -10058.4,
+      "p1": -3689.9260799999997,
+      "mediana": 1128.0,
+      "p99": 29726.290000000037,
+      "max": 66883.60000000006
+    },
+    "Profit_Margin": {
+      "min": -95.64644710129988,
+      "p1": -24.28035232677539,
+      "mediana": 11.34367167185926,
+      "p99": 63.789899720469194,
+      "max": 128.5711977379251
+    },
+    "Debt_to_Equity": {
+      "min": 0.0003718866823806,
+      "p1": 0.0055313217410072,
+      "mediana": 0.6986308190191686,
+      "p99": 11.419349200156114,
+      "max": 28.38377235197981
+    },
+    "PE_Ratio": {
+      "min": 4.066428404855132,
+      "p1": 5.847705489309308,
+      "mediana": 23.028570992606028,
+      "p99": 186.18413748549304,
+      "max": 1044.9199924468994
+    }
+  },
+  "umbral": 0.5,
+  "banda_incertidumbre": 0.05,
+  "hiperparametros": {
+    "n_estimators": 300,
+    "max_depth": 8,
+    "min_samples_leaf": 5,
+    "max_features": 0.3,
+    "max_samples": null,
+    "class_weight": null
+  },
+  "entrenamiento": {
+    "filas_train": 2468,
+    "filas_prueba": 1891,
+    "anio_corte": 2021,
+    "purga_horizonte": true,
+    "semilla": 42
+  },
+  "metricas_prueba": {
+    "Accuracy": 0.523,
+    "Precision": 0.4958,
+    "Recall": 0.3962,
+    "F1-Score": 0.4404,
+    "ROC-AUC": 0.5159,
+    "Brier Score": 0.2566,
+    "PR-AUC": 0.4906,
+    "Log-Loss": 0.7085,
+    "ECE": 0.0715
+  },
+  "versiones": {
+    "python": "3.13.18",
+    "scikit-learn": "1.6.1",
+    "numpy": "2.4.6",
+    "pandas": "2.2.3",
+    "joblib": "1.6.0"
+  },
+  "advertencia": "Modelo con capacidad predictiva débil (ROC-AUC ~0.52). Las probabilidades cercanas a 50 % indican incertidumbre. Uso académico; no constituye asesoría financiera."
+}

@@ -1,0 +1,19 @@
+# Servicio systemd para EC2 (Amazon Linux). Copiar a /etc/systemd/system/api-modelo.service
+# Ajusta User y rutas si tu usuario o carpeta son distintos.
+[Unit]
+Description=API FastAPI - modelo Random Forest
+After=network.target
+
+[Service]
+User=ec2-user
+WorkingDirectory=/home/ec2-user/backend
+Environment=MODEL_SOURCE=s3
+Environment=S3_BUCKET=NOMBRE-DEL-BUCKET
+Environment=S3_PREFIX=modelo/
+Environment=AWS_REGION=us-east-1
+Environment=CORS_ORIGINS=
+ExecStart=/home/ec2-user/backend/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
